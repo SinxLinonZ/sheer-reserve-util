@@ -23,22 +23,24 @@
                     {
                         type: "custom",
                         renderItem: function (params, api) {
-                            var categoryIndex = api.value(0);
-                            var startPoint = api.coord([
+
+                            
+                            let y_date = api.value(0);
+                            let startPoint = api.coord([
                                 api.value(1),
-                                categoryIndex,
+                                y_date,
                             ]);
-                            var endPoint = api.coord([
+                            let endPoint = api.coord([
                                 api.value(2),
-                                categoryIndex,
+                                y_date,
                             ]);
-                            var height = api.size([0, 1])[1] * 0.6;
+                            let height = api.size([0, 1])[1] * 0.6;
 
                             // shape 属性描述了这个矩形的像素位置和大小。
                             // 其中特殊得用到了 echarts.graphic.clipRectByRect，意思是，
                             // 如果矩形超出了当前坐标系的包围盒，则剪裁这个矩形。
                             // 如果矩形完全被剪掉，会返回 undefined.
-                            var rectShape = echarts.graphic.clipRectByRect(
+                            let rectShape = echarts.graphic.clipRectByRect(
                                 {
                                     // 矩形的位置和大小。
                                     x: startPoint[0],
@@ -55,9 +57,7 @@
                                 }
                             );
 
-                            console.log(
-                                startPoint, endPoint
-                            );
+                            console.log(startPoint, endPoint);
 
                             // 这里返回为这个 dataItem 构建的图形元素定义。
                             return (
@@ -80,9 +80,9 @@
                         },
 
                         data: [
-                            ["2021-01-01", -10*60*60*1000, 0, 60], // 这是第一个 dataItem
-                            ["2021-01-02", -10*60*60*1000, 0, 60], // 这是第一个 dataItem
-                            ["2021-01-03", -10*60*60*1000, 0, 60], // 这是第一个 dataItem
+                            ["2021-01-01", -10 * 60 * 60 * 1000, 0, 60], // 这是第一个 dataItem
+                            ["2021-01-02", -10 * 60 * 60 * 1000, 0, 60], // 这是第一个 dataItem
+                            ["2021-01-03", -10 * 60 * 60 * 1000, 0, 60], // 这是第一个 dataItem
                         ],
                     },
                 ],
